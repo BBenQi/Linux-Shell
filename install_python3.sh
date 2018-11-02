@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #####		CentOS 7一键安装Python 3		#####
-#####		作者：xiaoz.me					#####
-#####		更新时间：2018-07-20			#####
+#####		作者：Dwoud	  		 #####
+#####		更新时间：2018-11-02		       #####
 
 #导入环境变量
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
@@ -18,28 +18,28 @@ function install_py37(){
 	#调用安装依赖函数
 	rely
 	#下载源码
-	wget http://soft.xiaoz.org/python/Python-3.7.0.tar.xz
+	wget http://soft.xiaoz.org/python/Python-3.7.1.tar.xz
 	#解压
-	tar -xvJf Python-3.7.0.tar.xz
-	cd Python-3.7.0
+	tar -xvJf Python-3.7.1.tar.xz
+	cd Python-3.7.1
 	#编译安装
 	./configure --prefix=/usr/local/python3 --enable-optimizations
-	make -j4 && make -j4 install
+	make && make install
 	#清理工作
 	cd ..
 	rm -rf Python-*
 	#设置软连接
-	ln -s /usr/local/python3/bin/python3.7 /usr/bin/python3
+	ln -s /usr/local/python3/bin/python3.7 /usr/bin/python
 	ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
 	echo "------------------------------------------------"
 	echo '|	恭喜您，Python 3安装完成！  		 |'	
 	echo "------------------------------------------------"
-    # 修改 yum 配置
-    echo "修改 yum 文件 ..."
-    sed -i "s#/usr/bin/python#/usr/bin/python2.7#g" /usr/bin/yum
+   	# 修改 yum 配置
+    	echo "修改 yum 文件 ..."
+    	sed -i "s#/usr/bin/python#/usr/bin/python2.7#g" /usr/bin/yum
  
-    # 使配置生效
-    source /etc/profile
+    	# 使配置生效
+    	source /etc/profile
 }
 
 ###卸载Python 3
