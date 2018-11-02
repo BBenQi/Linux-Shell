@@ -25,24 +25,10 @@ Package_Dir=$(pwd)
  
 # 安装目录
 Python_Install_Dir="/usr/local/python-${Python_Version}"
- 
-# 网络检查
-NETWORK_CHECK() {
- 
-    # 检查联网情况
- 
-     ];then
-        echo "该服务器无法连网，请配置服务器网络！"
-        exit
-    fi
- 
-}
+
  
 # 升级 Python
 PYTHON_UPDATE() {
- 
-    # 检查网络
-    NETWORK_CHECK
  
     # 安装依赖
     echo '安装依赖：'
