@@ -20,7 +20,7 @@ function install_py37(){
 	#下载源码
 	wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
 	#解压
-	tar -xvJf Python-3.7.1.tar.xz
+	tar -xf Python-3.7.1.tgz
 	cd Python-3.7.1
 	#编译安装
 	./configure --prefix=/usr/local/python3 --enable-optimizations
